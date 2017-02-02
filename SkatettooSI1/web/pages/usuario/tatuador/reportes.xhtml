@@ -17,6 +17,8 @@ and open the template in the editor.
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/estilos.css"></link>
+        <link rel="stylesheet" type="text/css" href="https://cdn.datatables.net/v/bs-3.3.7/jszip-2.5.0/pdfmake-0.1.18/dt-1.10.13/b-1.2.4/b-html5-1.2.4/b-print-1.2.4/datatables.min.css"/>
+
         <link rel="stylesheet" type="text/css" href="css/parallax.css"></link>
         <script src="../../../js/jquery-2.2.3.min.js"></script>
     </h:head>
@@ -52,34 +54,32 @@ and open the template in the editor.
         </nav>
         <f:view>
             <h:form>
-                <p:dataTable var="c" value="#{citaManagedBean.listarCita()}" id="tabla" paginator="true" rows="6"
-                 paginatorTemplate="{RowsPerPageDropdown} {FirstPageLink} {PreviousPageLink} {CurrentPageReport} {NextPageLink} {LastPageLink}"
-                 rowsPerPageTemplate="5,10,15" filteredValue="#{citaManagedBean.filtrarCitas}">
+                <h:dataTable var="c" value="#{citaManagedBean.listarCita()}" id="tabla">
                     
-                    <p:column headerText="Descripcion" filterBy="#{c.descripcion}" filterMatchMode="contains">
+                    <h:column >
                         <h:outputText value="#{c.descripcion}"/>
-                    </p:column>
-                    <p:column headerText="Valor Tatuaje" filterBy="#{c.valorTatuaje}" filterMatchMode="contains">
+                    </h:column>
+                    <h:column >
                         <h:outputText value="#{c.valorTatuaje}"/>
-                    </p:column>
-                    <p:column headerText="Fecha Hora" filterBy="#{c.fechaHora}" filterMatchMode="contains">
+                    </h:column>
+                    <h:column>
                         <h:outputText value="#{c.fechaHora}">
                             <f:convertDateTime pattern="MM/dd/yyyy HH:mm:ss" />
                         </h:outputText>
-                    </p:column>                     
-                    <p:column headerText="Usuario" filterBy="#{c.idUsuario.nombre}" filterMatchMode="contains">
+                    </h:column>                     
+                    <h:column>
                         <h:outputText value="#{c.idUsuario.username}"/>
-                    </p:column>
-                    <p:column headerText="Diseño" filterBy="#{c.idDisenio.nombreDisenio}" filterMatchMode="contains">
+                    </h:column>
+                    <h:column>
                         <h:outputText value="#{c.idDisenio.nombreDisenio}"/>
-                    </p:column>
-                    <p:column headerText="Estado Cita" filterBy="#{c.idEstadoCita.nombreEstadoCita}" filterMatchMode="contains">     
+                    </h:column>
+                    <h:column>     
                         <h:outputText value="#{c.idEstadoCita.nombreEstadoCita}"/>
-                    </p:column>
-                    <p:column headerText="Sucursal" filterBy="#{c.idSucursal.nombre}" filterMatchMode="contains">
+                    </h:column>
+                    <h:column>
                         <h:outputText value="#{c.idSucursal.nombre}"/>
-                    </p:column>
-                </p:dataTable>
+                    </h:column>
+                </h:dataTable>
                 <h:commandLink>
                     <p:graphicImage url="../../../img/excel.jpg" width="40" />
                     <p:dataExporter type="csv" target="tabla" fileName="citas"/>
@@ -90,5 +90,6 @@ and open the template in the editor.
                 </h:commandLink>
             </h:form>
         </f:view>
+        <script type="text/javascript" src="https://cdn.datatables.net/v/bs-3.3.7/jszip-2.5.0/pdfmake-0.1.18/dt-1.10.13/b-1.2.4/b-html5-1.2.4/b-print-1.2.4/datatables.min.js"></script>
     </h:body>
 </html>
