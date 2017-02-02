@@ -10,6 +10,7 @@ import com.skatettoo.backend.persistence.facade.CitaFacadeLocal;
 import javax.inject.Named;
 import javax.enterprise.context.SessionScoped;
 import java.io.Serializable;
+import java.util.ArrayList;
 import java.util.List;
 import javax.annotation.PostConstruct;
 import javax.ejb.EJB;
@@ -25,6 +26,7 @@ public class CitaManagedBean implements Serializable {
     private Cita cita;
     @EJB
     private CitaFacadeLocal citafc;
+    private List<Cita> filtrarCitas;
     
     public CitaManagedBean() {
     }
@@ -61,6 +63,14 @@ public class CitaManagedBean implements Serializable {
     
     public List<Cita> listarCita(){
         return citafc.findAll();
+    }
+
+    public List<Cita> getFiltrarCitas() {
+        return filtrarCitas;
+    }
+
+    public void setFiltrarCitas(List<Cita> filtrarCitas) {
+        this.filtrarCitas = filtrarCitas;
     }
 
     

@@ -7,6 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Publicar noticia | skatettoo</title>
+        <link rel="icon" href="../../../img/st1.ico" type="image/x-icon"/>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/estilos.css"></link>
@@ -32,6 +33,7 @@
                         <li><a href="#">Crear noticia</a></li>
                         <li><a href="cdisenios.xhtml">Crear Diseños</a></li>
                         <li><a href="csucursal.xhtml">Sucursal</a></li>
+                        <li><a href="reportes.xhtml">Reportes</a></li>
                         <li><a href="ccitas.xhtml">Citas</a></li>
                         
                     </ul>
@@ -52,10 +54,10 @@
                     <p:inputTextarea rows="4" cols="30" id="descripcion" value="#{noticiaManagedBean.noti.descripcion}" title="Descripcion" required="true" requiredMessage="The Descripcion field is required."/>
                     <p:outputLabel value="IdUsuario:" for="idUsuario" />
                     <p:selectOneMenu id="idUsuario" value="#{noticiaManagedBean.noti.idUsuario}">
-                        <f:selectItems value="#{usuarioManagedBean.listarUsuario}" var="tatuador" itemLabel="#{tatuador.nombre} #{tatuador.apellido}"/>
+                        <f:selectItems value="#{usuarioManagedBean.listarUsuario()}" var="tatuador" itemLabel="#{tatuador.nombre} #{tatuador.apellido}"/>
                     </p:selectOneMenu>
                 </p:panelGrid>
-                <p:commandButton value="Publicar" actionListener="#{noticiaManagedBean.publicarNoticia()}"/>
+                <p:commandButton value="Publicar" actionListener="#{noticiaManagedBean.publicarNoticia()}" class="btn btn-danger"/>
             </h:form></center>
 
 
@@ -81,8 +83,8 @@
                         <h:outputText value="#{item.idUsuario.nombre} #{item.idUsuario.apellido}"/>
                     </p:column>
                     <p:column>
-                        <p:commandButton value="Actualizar" action="#{noticiaManagedBean.actualizarNoticia(item)}"/>
-                        <p:commandButton value="eliminar" actionListener="#{noticiaManagedBean.eliminarNoticia(item)}"/>
+                        <p:commandButton value="Actualizar" action="#{noticiaManagedBean.actualizarNoticia(item)}" class="btn btn-danger"/>
+                        <p:commandButton value="eliminar" actionListener="#{noticiaManagedBean.eliminarNoticia(item)}" class="btn btn-danger"/>
                     </p:column>
                 </p:dataTable>
             </h:form>

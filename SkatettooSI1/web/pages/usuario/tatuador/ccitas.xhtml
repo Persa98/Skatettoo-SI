@@ -7,6 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Citas | Skatettoo</title>
+        <link rel="icon" href="../../../img/st1.ico" type="image/x-icon"/>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/estilos.css"></link>
@@ -45,7 +46,7 @@
         </nav>
         <f:view>
             <h:form>
-                <h1><h:outputText value="List"/></h1>
+                <center><h1><h:outputText value="Citas"/></h1></center>
                 <p:dataTable value="#{citaManagedBean.listarCita()}" var="item">
                     <p:column>
                         <f:facet name="header">
@@ -83,11 +84,10 @@
                         <f:facet name="header">
                             <h:outputText value="Sucursal"/>
                         </f:facet>
-                        <h:outputText value="#{item.idSucursal}"/>
+                        <h:outputText value="#{item.idSucursal.nombre}"/>
                     </p:column>
                     <p:column>
-                        <p:commandButton value="Responder" action="#{citaManagedBean.actualizarCita(item)}"/>
-                        <p:commandButton value="Eliminar" action="#{citaManagedBean.eliminarCita(item)}"/>
+                        <p:commandButton actionListener="#{citaManagedBean.actualizarCita(item)}" class="btn btn-danger" value="Responder" />
                     </p:column>
                 </p:dataTable>
             </h:form>

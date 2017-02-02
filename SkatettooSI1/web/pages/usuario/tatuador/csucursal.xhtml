@@ -7,6 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Sucursal | Skatettoo</title>
+        <link rel="icon" href="../../../img/st1.ico" type="image/x-icon"/>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/estilos.css"></link>
@@ -32,6 +33,7 @@
                         <li><a href="noticia.xhtml">Crear noticia</a></li>
                         <li><a href="cdisenios.xhtml">Crear Diseños</a></li>
                         <li><a href="#">Sucursal</a></li>
+                        <li><a href="reportes.xhtml">Reportes</a></li>
                         <li><a href="ccitas.xhtml">Citas</a></li>
                         
                     </ul>
@@ -54,13 +56,13 @@
                     <p:inputTextarea rows="4" cols="30" id="descripcion" value="#{sucursalManagedBean.sucu.descripcion}" title="Descripcion" required="true" requiredMessage="The Descripcion field is required."/>
                     <p:outputLabel value="Telefono:" for="telefono" />
                     <p:inputText id="telefono" value="#{sucursalManagedBean.sucu.telefono}" title="Telefono" required="true" requiredMessage="The Telefono field is required."/>
-                    <p:outputLabel value="IdLocalidad:" for="idLocalidad" />
+                    <p:outputLabel value="Localidad:" for="idLocalidad" />
                     <h:selectOneMenu id="idLocalidad" value="#{sucursalManagedBean.sucu.idLocalidad}" required="true" requiredMessage="The IdLocalidad field is required.">
                         <!-- TODO: update below reference to list of available items-->
                         <f:selectItems value="#{localidadManagedBean.listarLocalidad()}" var="localidad" itemLabel="#{localidad.localidad}"/>
                     </h:selectOneMenu>
                 </p:panelGrid>
-                <p:commandButton value="Crear" actionListener="#{sucursalManagedBean.registrarSucursal()}"/>
+                <p:commandButton value="Crear" actionListener="#{sucursalManagedBean.registrarSucursal()}" class="btn btn-danger"/>
             </h:form></center>
 
 
@@ -98,8 +100,8 @@
                         <h:outputText value="#{item.idLocalidad.localidad}"/>
                     </p:column>
                     <p:column>
-                        <p:commandButton value="Actualizar" action="#{sucursalManagedBean.actualizarSucursal(item)}"/>
-                        <p:commandButton value="Eliminar" actionListener="#{sucursalManagedBean.eliminarSucursal(item)}"/>
+                        <p:commandButton value="Actualizar" action="#{sucursalManagedBean.actualizarSucursal(item)}" class="btn btn-danger"/>
+                        <p:commandButton value="Eliminar" actionListener="#{sucursalManagedBean.eliminarSucursal(item)}" class="btn btn-danger"/>
                     </p:column>
                 </p:dataTable>
             </h:form>

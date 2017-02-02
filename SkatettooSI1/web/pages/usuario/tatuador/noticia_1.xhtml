@@ -7,6 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Publicar noticia | skatettoo</title>
+        <link rel="icon" href="../../../img/st1.ico" type="image/x-icon"/>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/estilos.css"></link>
@@ -32,6 +33,7 @@
                         <li><a href="#">Crear noticia</a></li>
                         <li><a href="cdisenios.xhtml">Crear Diseños</a></li>
                         <li><a href="csucursal.xhtml">Sucursal</a></li>
+                        <li><a href="reportes.xhtml">Reportes</a></li>
                         <li><a href="ccitas.xhtml">Citas</a></li>
                         
                     </ul>
@@ -54,7 +56,7 @@
                     <p:outputLabel value="Tatuador:" for="idUsuario" />
                     <p:outputLabel id="idUsuario" value="#{noticiaManagedBean.noti.idUsuario.nombre} #{noticiaManagedBean.noti.idUsuario.apellido}"  />
                 </p:panelGrid>
-                <p:commandButton value="Publicar" actionListener="#{noticiaManagedBean.modificarNoticia()}"/>
+                <p:commandButton value="Publicar" actionListener="#{noticiaManagedBean.modificarNoticia()}" class="btn btn-danger"/>
             </h:form></center>
         </f:view>
 

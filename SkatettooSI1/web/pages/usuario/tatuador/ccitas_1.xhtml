@@ -7,6 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Citas | Skatettoo</title>
+        <link rel="icon" href="../../../img/st1.ico" type="image/x-icon"/>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/estilos.css"></link>
@@ -68,7 +69,7 @@
                     <p:outputLabel value="Sucursal:" for="idSucursal" />
                     <p:outputLabel id="idSucursal" value="#{citaManagedBean.cita.idSucursal.nombre}" />
                 </p:panelGrid>
-                <p:commandButton value="Enviar" actionListener="#{citaManagedBean.modificarCita()}"/> 
+                <p:commandButton value="Enviar" actionListener="#{citaManagedBean.modificarCita()}" class="btn btn-danger"/> 
             </h:form></center>
         </f:view>
 

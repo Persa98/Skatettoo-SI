@@ -7,6 +7,7 @@
       xmlns:p="http://primefaces.org/ui">
     <h:head>
         <title>Publicar Diseño | Skatettoo</title>
+        <link rel="icon" href="../../../img/st1.ico" type="image/x-icon"/>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/bootstrap.min.css"></link>
         <link rel="stylesheet" type="text/css" href="../../../css/estilos.css"></link>
@@ -32,6 +33,7 @@
                         <li><a href="noticia.xhtml">Crear noticia</a></li>
                         <li><a href="#">Crear Diseños</a></li>
                         <li><a href="csucursal.xhtml">Sucursal</a></li>
+                        <li><a href="reportes.xhtml">Reportes</a></li>
                         <li><a href="ccitas.xhtml">Citas</a></li>
                         
                     </ul>
@@ -62,10 +64,10 @@
                     <p:outputLabel value="Tatuador:" for="idUsuario" />
                     <h:selectOneMenu id="idUsuario" value="#{disenioManagedBean.disenio.idUsuario}" required="true" requiredMessage="The IdUsuario field is required.">
                         <!-- TODO: update below reference to list of available items-->
-                        <f:selectItems value="#{usuarioManagedBean.listarUsuario}" var="tatuador" itemLabel="#{tatuador.nombre} #{tatuador.apellido}"/>
+                        <f:selectItems value="#{usuarioManagedBean.listarUsuario()}" var="tatuador" itemLabel="#{tatuador.nombre} #{tatuador.apellido}"/>
                     </h:selectOneMenu>
                 </p:panelGrid>
-                <p:commandButton value="Añadir" actionListener="#{disenioManagedBean.registrarDisenio()}"/>
+                <p:commandButton value="Añadir" actionListener="#{disenioManagedBean.registrarDisenio()}" class="btn btn-danger"/>
             </h:form></center>
 
 
@@ -109,8 +111,8 @@
                         <h:outputText value="#{item.idUsuario.nombre} #{item.idUsuario.apellido}"/>
                     </p:column>
                     <p:column>
-                        <p:commandButton value="Actualizar" action="#{disenioManagedBean.actualizarDisenio(item)}"/>
-                        <p:commandButton value="Eliminar" actionListener="#{disenioManagedBean.eliminarDisenio(item)}"/>
+                        <p:commandButton value="Actualizar" action="#{disenioManagedBean.actualizarDisenio(item)}" class="btn btn-danger"/>
+                        <p:commandButton value="Eliminar" actionListener="#{disenioManagedBean.eliminarDisenio(item)}" class="btn btn-danger"/>
                     </p:column>
                 </p:dataTable>
             </h:form>
